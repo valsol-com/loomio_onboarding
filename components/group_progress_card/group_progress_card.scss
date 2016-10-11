@@ -1,0 +1,7 @@
+.group-progress-card {
+  @include card;
+}
+
+.group-progress-card__checkbox {
+  display: block;
+}
