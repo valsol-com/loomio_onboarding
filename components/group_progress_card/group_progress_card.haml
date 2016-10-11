@@ -1,23 +1,45 @@
 .blank
-  %section.group-progress-card
+  %section.group-progress-card{ng-if: "show()", ng-class: "{'group-progress-card__dismissed': dismissed}"}>
+    %button{type: "button", class: "close", ng-click: "dismiss()"}
+      %span &times;
+      %span.sr-only{translate: "group_progress_card.dismiss"}
     %h2.lmo-card-heading{translate: "group_progress_card.title"}
 
-    .group-progress-card__checkbox
-      %input.group-progress-card__set-description#set-group-description{type: "checkbox", ng-checked: "group.description"}
-      %label{for: "set-group-description", translate: "group_progress_card.set_description"}>
+    %ul.group-progress-card__list
+      %li.group-progress-card__list-item
+        1.
+        %span{translate: "group_progress_card.set_description", ng-class: "{'group-progress-card__complete': group.description}"}>
+        %span{ng-if: "group.description"} ✅
 
-    .group-progress-card__checkbox
-      %input.group-progress-card__set-description#set-profile-photo{type: "checkbox", ng-checked: "userHasProfilePicture()"}
-      %label{for: "set-profile-photo", translate: "group_progress_card.set_profile_photo"}>
+      %li.group-progress-card__list-item
+        2.
+        %span{translate: "group_progress_card.set_profile_photo", ng-class: "{'group-progress-card__complete': userHasProfilePicture()}"}>
+        %span{ng-if: "userHasProfilePicture()"} ✅
 
-    .group-progress-card__checkbox
-      %input.group-progress-card__set-description#set-cover-photo{type: "checkbox", ng-checked: ""}
-      %label{for: "set-cover_photo", translate: "group_progress_card.set_cover_photo"}>
+      %li.group-progress-card__list-item
+        3.
+        %span{translate: "group_progress_card.set_cover_photo", ng-class: "{'group-progress-card__complete': group.hasCustomCover}"}>
+        %span{ng-if: "group.hasCustomCover"} ✅
 
-    .group-progress-card__checkbox
-      %input.group-progress-card__set-description#set-group-description{type: "checkbox"}
-      %label{for: "set-group-description", translate: "group_progress_card.set_description"}>
+      %li.group-progress-card__list-item
+        4.
+        %span{translate: "group_progress_card.invite_people_in", ng-class: "{'group-progress-card__complete': group.hasMultipleMembers()}"}>
+        %span{ng-if: "group.hasMultipleMembers()"} ✅
 
-    .group-progress-card__checkbox
-      %input.group-progress-card__set-description#set-group-description{type: "checkbox"}
-      %label{for: "set-group-description", translate: "group_progress_card.set_description"}>
+      %li.group-progress-card__list-item
+        5.
+        %span{translate: "group_progress_card.start_thread", ng-class: "{'group-progress-card__complete': group.hasMultipleThreads()}"}>
+        %span{ng-if: "group.hasMultipleThreads()"} ✅
+
+      %li.group-progress-card__list-item
+        6.
+        %span{translate: "group_progress_card.start_proposal", ng-class: "{'group-progress-card__complete': group.hasMultipleProposals()}"}>
+        %span{ng-if: "group.hasMultipleProposals()"} ✅
+
+    .group-progress-card__celebration-message{ng-if: "setupComplete()"}
+      👏
+      %span{translate: "group_progress_card.celebration_message"}
+
+    %a.group-progress-card__learn-more{href: "http://loomio.school/", target: "_blank"}
+      %span{translate: "group_progress_card.learn_more"}>
+      %span 🎓

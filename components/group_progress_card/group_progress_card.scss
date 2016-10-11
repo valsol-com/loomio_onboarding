@@ -2,6 +2,19 @@
   @include card;
 }
 
-.group-progress-card__checkbox {
-  display: block;
+.group-progress-card__list {
+  list-style: none;
+  padding-left: 0px;
+}
+
+.group-progress-card__complete {
+  text-decoration: line-through;
+}
+
+.group-progress-card__dismissed {
+  display: none;
+}
+
+.group-progress-card__learn-more {
+  @include cardMinorAction;
 }
