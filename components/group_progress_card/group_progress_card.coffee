@@ -18,6 +18,22 @@ angular.module('loomioApp').directive 'groupProgressCard', ->
       Records.users.saveExperience("dismissProgressCard")
       $scope.dismissed = true
 
-    $scope.setupComplete = ->
-      $scope.group.setupComplete() &&
+    $scope.groupHasMultipleMembers = ->
+      $scope.group.membershipsCount > 1
+
+    $scope.groupHasMultipleThreads = ->
+      $scope.group.discussionsCount > 2
+
+    $scope.groupHasMultipleProposals = ->
+      $scope.group.motionsCount > 1
+
+    $scope.groupSetupComplete = ->
+      $scope.group.description &&
+      $scope.group.hasCustomCover &&
+      $scope.groupHasMultipleMembers() &&
+      $scope.groupHasMultipleThreads() &&
+      $scope.groupHasMultipleProposals()
+
+    $scope.allTasksCompleted = ->
+      $scope.groupSetupComplete() &&
       $scope.userHasProfilePicture()

@@ -23,20 +23,20 @@
 
       %li.group-progress-card__list-item
         4.
-        %span{translate: "group_progress_card.invite_people_in", ng-class: "{'group-progress-card__complete': group.hasMultipleMembers()}"}>
-        %span{ng-if: "group.hasMultipleMembers()"} ✅
+        %span{translate: "group_progress_card.invite_people_in", ng-class: "{'group-progress-card__complete': groupHasMultipleMembers()}"}>
+        %span{ng-if: "groupHasMultipleMembers()"} ✅
 
       %li.group-progress-card__list-item.group-progress-card__start-thread
         5.
-        %span{translate: "group_progress_card.start_thread", ng-class: "{'group-progress-card__complete': group.hasMultipleThreads()}"}>
-        %span{ng-if: "group.hasMultipleThreads()"} ✅
+        %span{translate: "group_progress_card.start_thread", ng-class: "{'group-progress-card__complete': groupHasMultipleThreads()}"}>
+        %span{ng-if: "groupHasMultipleThreads()"} ✅
 
       %li.group-progress-card__list-item
         6.
-        %span{translate: "group_progress_card.start_proposal", ng-class: "{'group-progress-card__complete': group.hasMultipleProposals()}"}>
-        %span{ng-if: "group.hasMultipleProposals()"} ✅
+        %span{translate: "group_progress_card.start_proposal", ng-class: "{'group-progress-card__complete': groupHasMultipleProposals()}"}>
+        %span{ng-if: "groupHasMultipleProposals()"} ✅
 
-    .group-progress-card__celebration-message{ng-if: "setupComplete()"}
+    .group-progress-card__celebration-message{ng-if: "allTasksCompleted()"}
       👏
       %span{translate: "group_progress_card.celebration_message"}>
 
