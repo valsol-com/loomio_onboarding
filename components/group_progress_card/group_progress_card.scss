@@ -2,6 +2,12 @@
   @include card;
 }
 
+.group-progress-card__row {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
 .group-progress-card__list {
   list-style: none;
   padding-left: 0px;

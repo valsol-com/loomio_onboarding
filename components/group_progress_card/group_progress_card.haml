@@ -1,9 +1,11 @@
 .blank
   %section.group-progress-card{ng-if: "show()", ng-class: "{'group-progress-card__dismissed': dismissed}"}>
-    %button.group-progress-card__dismiss{type: "button", class: "close", ng-click: "dismiss()"}
-      %span &times;
-      %span.sr-only{translate: "group_progress_card.dismiss"}
-    %h2.lmo-card-heading{translate: "group_progress_card.title"}
+    .group-progress-card__row
+      %h2#group-progress-card__title.lmo-card-heading{translate: "group_progress_card.title"}
+      %button.group-progress-card__dismiss{type: "button", class: "close", ng-click: "dismiss()"}
+        %span{aria-hidden: "true"}
+          &times;
+        %span.sr-only{translate: "group_progress_card.dismiss"}
 
     %ul.group-progress-card__list
       %li.group-progress-card__list-item
@@ -40,6 +42,6 @@
       👏
       %span{translate: "group_progress_card.celebration_message"}>
 
-    %a.group-progress-card__learn-more{href: "http://loomio.school/", target: "_blank"}
+    %a.group-progress-card__learn-more{href: "http://loomio.school/", target: "_blank", title: "{{ 'group_progress_card.learn_more_title' | translate }}"}
       %span{translate: "group_progress_card.learn_more"}>
       %span 🎓
