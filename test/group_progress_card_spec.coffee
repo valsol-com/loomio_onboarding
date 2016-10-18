@@ -22,9 +22,18 @@ describe 'Group progress card', ->
     page.fillIn '.proposal-form__title-field', 'New proposal'
     page.click '.proposal-form__start-btn'
     page.click '.group-theme__name--compact a'
-    page.expectText '.group-progress-card', "Nice! You're group is good to go!"
+    page.expectText '.group-progress-card', "Nice! Your group is good to go!"
 
   it 'can be dismissed', ->
     page.loadPath 'setup_progress_card_coordinator'
     page.click '.group-progress-card__dismiss'
     page.expectNoText '.group-page', 'ACTIVATE YOUR GROUP'
+
+  it 'reappears when user starts a new group', ->
+    page.loadPath 'setup_progress_card_coordinator'
+    page.click '.group-progress-card__dismiss'
+    page.click '.start-menu__start-button',
+               '.start-menu__startGroup'
+    page.fillIn '#group-name', 'Freshest group'
+    page.click '.group-form__submit-button'
+    page.expectText '.group-page', 'ACTIVATE YOUR GROUP'

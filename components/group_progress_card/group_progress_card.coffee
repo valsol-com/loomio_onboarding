@@ -3,19 +3,19 @@ angular.module('loomioApp').directive 'groupProgressCard', ->
   restrict: 'E'
   templateUrl: 'generated/components/group_progress_card/group_progress_card.html'
   replace: true
-  controller: ($scope, Session, Records) ->
+  controller: ($scope, Session, Records, IntercomService) ->
     group = $scope.group
     $scope.dismissed = false
 
     $scope.show = ->
       Session.user().isAdminOf($scope.group) &&
-      !Session.user().hasExperienced("dismissProgressCard")
+      !Session.user().hasExperienced("dismissProgressCard", $scope.group)
 
     $scope.userHasProfilePicture = ->
       Session.user().hasProfilePhoto()
 
     $scope.dismiss = ->
-      Records.users.saveExperience("dismissProgressCard")
+      Records.memberships.saveExperience("dismissProgressCard", Session.user().membershipFor($scope.group))
       $scope.dismissed = true
 
     $scope.groupHasMultipleMembers = ->
@@ -37,3 +37,9 @@ angular.module('loomioApp').directive 'groupProgressCard', ->
     $scope.allTasksCompleted = ->
       $scope.groupSetupComplete() &&
       $scope.userHasProfilePicture()
+
+    $scope.showContactUs = ->
+      IntercomService.available()
+
+    $scope.contactUs = ->
+      IntercomService.contactUs()
