@@ -40,7 +40,8 @@
 
     .group-progress-card__celebration-message{ng-if: "allTasksCompleted()"}
       🎉
-      %span{translate: "group_progress_card.celebration_message"}>
+      %span
+        %strong{translate: "group_progress_card.celebration_message"}>
 
     %a.group-progress-card__learn-more{ng-if: "showContactUs()", ng-click: "contactUs()", title: "{{ 'group_progress_card.learn_more_title' | translate }}"}
       %span{translate: "group_progress_card.learn_more"}>

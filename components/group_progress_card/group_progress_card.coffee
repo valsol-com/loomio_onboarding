@@ -1,10 +1,10 @@
 angular.module('loomioApp').directive 'groupProgressCard', ->
-  scope: {group: '='}
+  scope: { group: '=?', discussion: '=?' }
   restrict: 'E'
   templateUrl: 'generated/components/group_progress_card/group_progress_card.html'
   replace: true
   controller: ($scope, Session, Records, IntercomService) ->
-    group = $scope.group
+    $scope.group = $scope.group || $scope.discussion.group()
     $scope.dismissed = false
 
     $scope.show = ->
