@@ -21,7 +21,6 @@ describe 'Group progress card', ->
     page.click '.start-proposal-button__button'
     page.fillIn '.proposal-form__title-field', 'New proposal'
     page.click '.proposal-form__start-btn'
-    page.click '.group-theme__name--compact a'
     page.expectText '.group-progress-card', "Nice! Your group is good to go!"
 
   it 'can be dismissed', ->
