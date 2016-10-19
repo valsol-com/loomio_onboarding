@@ -8,6 +8,7 @@ angular.module('loomioApp').directive 'groupProgressCard', ->
     $scope.dismissed = false
 
     $scope.show = ->
+      $scope.group.createdAt.isAfter(moment("2016-10-20")) &&
       Session.user().isAdminOf($scope.group) &&
       !Session.user().hasExperienced("dismissProgressCard", $scope.group)
 
