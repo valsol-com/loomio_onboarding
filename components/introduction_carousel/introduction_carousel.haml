@@ -1,0 +1,75 @@
+.blank
+  .introduction-carousel{ng-if: "show()"}
+    .introduction-carousel__slide-wrapper
+      %a.introduction-carousel__arrow-prev{ng-click: "prevSlide()"}
+        .introduction-carousel__icon-container
+          %i.fa.fa-2x.fa-long-arrow-left
+
+      -# .introduction_carousel__slide.animated{ng-repeat: "slide in slides", ng-hide: "!isCurrentSlideIndex($index)"}
+      -#   %img.introduction-carousel__slide-image{ng-src: "{{slide.image}}"}
+      -#   .introduction-carousel__slide-title
+      -#     %strong {{ slide.title }}
+      -#   .introduction-carousel__slide-description
+      -#     {{ slide.description }}
+      -#   .introduction-carousel__actions
+      -#     .introduction-carousel__button
+      -#       %button.lmo-btn--featured{ng-click: ""} LEARN MORE
+      -#     .introduction-carousel__button
+      -#       %button.lmo-btn--featured{ng-click: "dismiss()"} GET STARTED
+      .introduction-carousel__slides.animated{ng-switch: "currentSlide"}
+        .introduction-carousel__slide.animated{ng-switch-when: "Gather"}
+          %img.introduction-carousel__slide-image{ng-src: "img/gather.png"}
+          .introduction-carousel__slide-title
+            %strong Gather
+          .introduction-carousel__slide-description
+            All your Loomio activity happens with a group. Check who's here and invite people if anyone is missing.
+          .introduction-carousel__actions
+            .introduction-carousel__button
+              %button.lmo-btn--featured{ng-click: ""} LEARN MORE
+            .introduction-carousel__button
+              %button.lmo-btn--featured{ng-click: "dismiss()"} GET STARTED
+
+        .introduction-carousel__slide.animated{ng-switch-when: "Discuss"}
+          %img.introduction-carousel__slide-image{ng-src: "img/discuss.png"}
+          .introduction-carousel__slide-title
+            %strong Discuss
+          .introduction-carousel__slide-description
+            Start a thread to have a discussion with your group members. Keep each thread focussed on one topic.
+          .introduction-carousel__actions
+            .introduction-carousel__button
+              %button.lmo-btn--featured{ng-click: ""} LEARN MORE
+            .introduction-carousel__button
+              %button.lmo-btn--featured{ng-click: "dismiss()"} GET STARTED
+
+        .introduction-carousel__slide.animated{ng-switch-when: "Propose"}
+          %img.introduction-carousel__slide-image{ng-src: "img/propose.png"}
+          .introduction-carousel__slide-title
+            %strong Propose
+          .introduction-carousel__slide-description
+            Use a proposal to move a thread towards a conclusion: everyone is asked to have their say on a specific course of action.
+          .introduction-carousel__actions
+            .introduction-carousel__button
+              %button.lmo-btn--featured{ng-click: ""} LEARN MORE
+            .introduction-carousel__button
+              %button.lmo-btn--featured{ng-click: "dismiss()"} GET STARTED
+
+        .introduction-carousel__slide.animated{ng-switch-when: "Act"}
+          %img.introduction-carousel__slide-image{ng-src: "img/act.png"}
+          .introduction-carousel__slide-title
+            %strong Decide & Act
+          .introduction-carousel__slide-description
+            When the proposal closes you'll get a visual summary of everyone's input. Notify everyone of the outcome so the next steps are clear.
+          .introduction-carousel__actions
+            .introduction-carousel__button
+              %button.lmo-btn--featured{ng-click: ""} LEARN MORE
+            .introduction-carousel__button
+              %button.lmo-btn--featured{ng-click: "dismiss()"} GET STARTED
+
+      %a.introduction-carousel__arrow-next{ng-click: "nextSlide()"}
+        .introduction-carousel__icon-container
+          %i.fa.fa-2x.fa-long-arrow-right
+
+    .introduction-carousel__navigation
+      %ul.introduction-carousel__dots
+        %li{ng-repeat:"slide in slides"}
+          %a.introduction-carousel__dot{ng-class: "{'introduction__carousel-dot--active':isCurrentSlideIndex($index)}", ng-click: "setCurrentSlideIndex($index)"}

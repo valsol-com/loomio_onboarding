@@ -4,6 +4,8 @@ module Plugins
       setup! :loomio_group_progress_card do |plugin|
         plugin.enabled = true
         plugin.use_component :group_progress_card, outlet: [:before_group_column_right, :before_thread_column_right]
+        plugin.use_component :introduction_carousel, outlet: [:before_group_page]
+
         plugin.use_translations 'config/locales', :group_progress_card
 
         plugin.use_test_route(:setup_progress_card_coordinator) do
