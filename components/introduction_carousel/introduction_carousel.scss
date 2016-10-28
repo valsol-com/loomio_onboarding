@@ -23,7 +23,7 @@
   background-color: #fff;
   border: 1px solid;
   border-radius: 20px;
-  max-width: 450px;
+  width: 450px;
   padding: 20px;
   position: relative;
 }
@@ -93,27 +93,38 @@
   box-shadow: inset 2px 0px 2px -2px #333;
 }
 
-.ng-enter,
-.ng-leave {
-  -webkit-transition:all cubic-bezier(0.250, 0.460, 0.450, 0.750) 0.5s;
-  -moz-transition:all cubic-bezier(0.250, 0.460, 0.450, 0.750) 0.5s;
-  -ms-transition:all cubic-bezier(0.250, 0.460, 0.450, 0.750) 0.5s;
-  -o-transition:all cubic-bezier(0.250, 0.460, 0.450, 0.750) 0.5s;
-  transition:all cubic-bezier(0.250, 0.460, 0.450, 0.750) 0.5s;
+.go-left > .introduction-carousel__slide.ng-enter {
+  animation: slideInLeft 0.5s ease-in;
 }
 
-.ng-enter {
-  left: 100%;
+.go-left > .introduction-carousel__slide.ng-leave {
+  animation: slideOutLeft 0.5s ease-out;
 }
 
-.ng-enter.ng-enter-active {
-  left: 0;
+.go-right > .introduction-carousel__slide.ng-enter {
+  animation: slideInRight 0.5s ease-in;
 }
 
-.ng-leave {
-  left: 0;
+.go-right > .introduction-carousel__slide.ng-leave {
+  animation: slideOutRight 0.5s ease-out;
 }
 
-.ng-leave.ng-leave-active{
-  left: -100%;
+@keyframes slideInLeft {
+  from { left: 100%; opacity: 0; }
+  to   { left: 0; opacity: 1; }
+}
+
+@keyframes slideOutLeft {
+  from { left: 0; opacity: 1; }
+  to   { left: -100%; opacity: 0; }
+}
+
+@keyframes slideInRight {
+  from { left: -100%; opacity: 0; }
+  to   { left: 0; opacity: 1; }
+}
+
+@keyframes slideOutRight {
+  from { left: 0; opacity: 1 }
+  to   { left: 100%; opacity: 0; }
 }
