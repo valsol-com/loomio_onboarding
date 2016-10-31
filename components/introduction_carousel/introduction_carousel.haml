@@ -6,7 +6,7 @@
           %i.fa.fa-2x.fa-long-arrow-left
 
       .introduction-carousel__slides.animated.go-left
-        .introduction-carousel__slide.animated{ng-if: "slideIndex == 0"}
+        .introduction-carousel__slide.animated{ng-if: "slideIndex == 0", ng-swipe-left: "nextSlide()", ng-swipe-right: "prevSlide()"}
           %img.introduction-carousel__slide-image{ng-src: "img/gather.png", alt: "{{ 'loomio_onboarding.introduction_carousel.gather_alt_text' | translate }}"}
           .introduction-carousel__slide-title
             %strong{translate: "loomio_onboarding.introduction_carousel.gather_title"}
@@ -17,7 +17,7 @@
             .introduction-carousel__button
               %button.introduction-carousel__button-text.lmo-btn--featured{ng-click: "dismiss()", translate: "loomio_onboarding.introduction_carousel.get_started"}
 
-        .introduction-carousel__slide.animated{ng-if: "slideIndex == 1"}
+        .introduction-carousel__slide.animated{ng-if: "slideIndex == 1", ng-swipe-left: "nextSlide()", ng-swipe-right: "prevSlide()"}
           %img.introduction-carousel__slide-image{ng-src: "img/discuss.png", alt: "{{ 'loomio_onboarding.introduction_carousel.discuss_alt_text' | translate }}"}
           .introduction-carousel__slide-title
             %strong{translate: "loomio_onboarding.introduction_carousel.discuss_title"}
@@ -28,7 +28,7 @@
             .introduction-carousel__button
               %button.introduction-carousel__button-text.lmo-btn--featured{ng-click: "dismiss()", translate: "loomio_onboarding.introduction_carousel.get_started"}
 
-        .introduction-carousel__slide.animated{ng-if: "slideIndex == 2"}
+        .introduction-carousel__slide.animated{ng-if: "slideIndex == 2", ng-swipe-left: "nextSlide()", ng-swipe-right: "prevSlide()"}
           %img.introduction-carousel__slide-image{ng-src: "img/propose.png", alt: "{{ 'loomio_onboarding.introduction_carousel.propose_alt_text' | translate }}"}
           .introduction-carousel__slide-title
             %strong{translate: "loomio_onboarding.introduction_carousel.propose_title"}
