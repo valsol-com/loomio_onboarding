@@ -3,13 +3,11 @@ describe 'Group progress card', ->
   page = require '../../../angular/test/protractor/helpers/page_helper.coffee'
   staticPage = require '../../../angular/test/protractor/helpers/static_page_helper.coffee'
 
-  it 'is only visible to group coordinators of parent groups', ->
+  it 'is only visible to group coordinators', ->
     page.loadPath 'setup_progress_card_coordinator'
     page.expectText '.group-progress-card', 'ACTIVATE YOUR GROUP'
-    page.click '.subgroups-card__list-item-name a'
-    page.expectNoText '.group-page', 'ACTIVATE YOUR GROUP'
 
-  it 'is is not visible to non-coordinators', ->
+  it 'is only visible to group coordinators', ->
     page.loadPath 'setup_progress_card_member'
     page.expectNoText '.group-page', 'ACTIVATE YOUR GROUP'
 

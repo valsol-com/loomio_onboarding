@@ -8,11 +8,6 @@ module Plugins
 
         plugin.use_test_route(:setup_progress_card_coordinator) do
           GroupService.create(group: test_group, actor: patrick)
-          test_subgroup = Group.new(name: 'Johnny sub',
-                                    parent: test_group,
-                                    discussion_privacy_options: 'public_or_private',
-                                    group_privacy: 'closed')
-          GroupService.create(group: test_subgroup, actor: patrick)
           test_group.update_attribute(:enable_experiments, true)
           test_group.update_attribute(:description, 'Here is a group description')
           test_group.cover_photo = File.new("#{Rails.root}/spec/fixtures/images/strongbad.png")
