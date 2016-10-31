@@ -3,8 +3,7 @@ angular.module('loomioApp').directive 'introductionCarousel', ->
   restrict: 'E'
   templateUrl: 'generated/components/introduction_carousel/introduction_carousel.html'
   replace: true
-  controller: ($scope, Session, $rootScope) ->
-    $scope.dismissed = false
+  controller: ($scope, Session, $rootScope, Records) ->
 
     $scope.slides =
       ['Gather', 'Discuss', 'Propose', 'Act']
@@ -15,11 +14,10 @@ angular.module('loomioApp').directive 'introductionCarousel', ->
       $scope.group.isParent() &&
       Session.user().isMemberOf($scope.group) &&
       !Session.subscriptionSuccess &&
-      !Session.user().hasExperienced("introductionCarousel") &&
-      !$scope.dismissed
+      !Session.user().hasExperienced("introductionCarousel")
 
     $scope.dismiss = ->
-      $scope.dismissed = true
+      Records.users.saveExperience("introductionCarousel")
 
     $scope.nextSlide = ->
       applyAnimationClasses("go-left", "go-right")

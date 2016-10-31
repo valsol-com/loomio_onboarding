@@ -12,10 +12,10 @@
             %strong{translate: "loomio_onboarding.introduction_carousel.gather_title"}
           .introduction-carousel__slide-description{translate: "loomio_onboarding.introduction_carousel.gather_description"}
           .introduction-carousel__actions
-            .introduction-carousel__button
-              %button.introduction-carousel__button-text.lmo-btn--featured{ng-click: "", translate: "loomio_onboarding.introduction_carousel.learn_more"}
-            .introduction-carousel__button
-              %button.introduction-carousel__button-text.lmo-btn--featured{ng-click: "dismiss()", translate: "loomio_onboarding.introduction_carousel.get_started"}
+            .introduction-carousel__button-container
+              %button.introduction-carousel__button.introduction-carousel__button--learn-more.lmo-btn--featured{ng-click: "", translate: "loomio_onboarding.introduction_carousel.learn_more"}
+            .introduction-carousel__button-container
+              %button.introduction-carousel__button.introduction-carousel__button--get-started.lmo-btn--featured{ng-click: "dismiss()", translate: "loomio_onboarding.introduction_carousel.get_started"}
 
         .introduction-carousel__slide.animated{ng-if: "slideIndex == 1", ng-swipe-left: "nextSlide()", ng-swipe-right: "prevSlide()"}
           %img.introduction-carousel__slide-image{ng-src: "img/discuss.png", alt: "{{ 'loomio_onboarding.introduction_carousel.discuss_alt_text' | translate }}"}
