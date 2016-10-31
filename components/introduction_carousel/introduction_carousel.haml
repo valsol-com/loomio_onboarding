@@ -7,58 +7,54 @@
 
       .introduction-carousel__slides.animated.go-left
         .introduction-carousel__slide.animated{ng-if: "slideIndex == 0"}
-          %img.introduction-carousel__slide-image{ng-src: "img/gather.png"}
+          %img.introduction-carousel__slide-image{ng-src: "img/gather.png", alt: "{{ 'loomio_onboarding.introduction_carousel.gather_alt_text' | translate }}"}
           .introduction-carousel__slide-title
-            %strong Gather
-          .introduction-carousel__slide-description
-            All your Loomio activity happens with a group. Check who's here and invite people if anyone is missing.
+            %strong{translate: "loomio_onboarding.introduction_carousel.gather_title"}
+          .introduction-carousel__slide-description{translate: "loomio_onboarding.introduction_carousel.gather_description"}
           .introduction-carousel__actions
             .introduction-carousel__button
-              %button.lmo-btn--featured{ng-click: ""} LEARN MORE
+              %button.introduction-carousel__button-text.lmo-btn--featured{ng-click: "", translate: "loomio_onboarding.introduction_carousel.learn_more"}
             .introduction-carousel__button
-              %button.lmo-btn--featured{ng-click: "dismiss()"} GET STARTED
+              %button.introduction-carousel__button-text.lmo-btn--featured{ng-click: "dismiss()", translate: "loomio_onboarding.introduction_carousel.get_started"}
 
         .introduction-carousel__slide.animated{ng-if: "slideIndex == 1"}
-          %img.introduction-carousel__slide-image{ng-src: "img/discuss.png"}
+          %img.introduction-carousel__slide-image{ng-src: "img/discuss.png", alt: "{{ 'loomio_onboarding.introduction_carousel.discuss_alt_text' | translate }}"}
           .introduction-carousel__slide-title
-            %strong Discuss
-          .introduction-carousel__slide-description
-            Start a thread to have a discussion with your group members. Keep each thread focussed on one topic.
+            %strong{translate: "loomio_onboarding.introduction_carousel.discuss_title"}
+          .introduction-carousel__slide-description{translate: "loomio_onboarding.introduction_carousel.discuss_description"}
           .introduction-carousel__actions
             .introduction-carousel__button
-              %button.lmo-btn--featured{ng-click: ""} LEARN MORE
+              %button.introduction-carousel__button-text.lmo-btn--featured{ng-click: "", translate: "loomio_onboarding.introduction_carousel.learn_more"}
             .introduction-carousel__button
-              %button.lmo-btn--featured{ng-click: "dismiss()"} GET STARTED
+              %button.introduction-carousel__button-text.lmo-btn--featured{ng-click: "dismiss()", translate: "loomio_onboarding.introduction_carousel.get_started"}
 
         .introduction-carousel__slide.animated{ng-if: "slideIndex == 2"}
-          %img.introduction-carousel__slide-image{ng-src: "img/propose.png"}
+          %img.introduction-carousel__slide-image{ng-src: "img/propose.png", alt: "{{ 'loomio_onboarding.introduction_carousel.propose_alt_text' | translate }}"}
           .introduction-carousel__slide-title
-            %strong Propose
-          .introduction-carousel__slide-description
-            Use a proposal to move a thread towards a conclusion: everyone is asked to have their say on a specific course of action.
+            %strong{translate: "loomio_onboarding.introduction_carousel.propose_title"}
+          .introduction-carousel__slide-description{translate: "loomio_onboarding.introduction_carousel.propose_description"}
           .introduction-carousel__actions
             .introduction-carousel__button
-              %button.lmo-btn--featured{ng-click: ""} LEARN MORE
+              %button.introduction-carousel__button-text.lmo-btn--featured{ng-click: "", translate: "loomio_onboarding.introduction_carousel.learn_more"}
             .introduction-carousel__button
-              %button.lmo-btn--featured{ng-click: "dismiss()"} GET STARTED
+              %button.introduction-carousel__button-text.lmo-btn--featured{ng-click: "dismiss()", translate: "loomio_onboarding.introduction_carousel.get_started"}
 
         .introduction-carousel__slide.animated{ng-if: "slideIndex == 3"}
-          %img.introduction-carousel__slide-image{ng-src: "img/act.png"}
+          %img.introduction-carousel__slide-image{ng-src: "img/act.png", alt: "{{ 'loomio_onboarding.introduction_carousel.act_alt_text' | translate }}"}
           .introduction-carousel__slide-title
-            %strong Decide & Act
-          .introduction-carousel__slide-description
-            When the proposal closes you'll get a visual summary of everyone's input. Notify everyone of the outcome so the next steps are clear.
+            %strong{translate: "loomio_onboarding.introduction_carousel.act_title"}
+          .introduction-carousel__slide-description{translate: "loomio_onboarding.introduction_carousel.act_description"}
           .introduction-carousel__actions
             .introduction-carousel__button
-              %button.lmo-btn--featured{ng-click: ""} LEARN MORE
+              %button.introduction-carousel__button-text.lmo-btn--featured{ng-click: "", translate: "loomio_onboarding.introduction_carousel.learn_more"}
             .introduction-carousel__button
-              %button.lmo-btn--featured{ng-click: "dismiss()"} GET STARTED
+              %button.introduction-carousel__button-text.lmo-btn--featured{ng-click: "dismiss()", translate: "loomio_onboarding.introduction_carousel.get_started"}
 
       %a.introduction-carousel__arrow-next{ng-click: "nextSlide()"}
         .introduction-carousel__icon-container
           %i.fa.fa-2x.fa-long-arrow-right
 
-    .introduction-carousel__navigation
+    .introduction-carousel__navigation{aria-hidden: "true"}
       %ul.introduction-carousel__dots
         %li{ng-repeat:"slide in slides"}
           %a.introduction-carousel__dot{ng-class: "{'introduction__carousel-dot--active':isCurrentSlideIndex($index)}", ng-click: "transition($index)"}

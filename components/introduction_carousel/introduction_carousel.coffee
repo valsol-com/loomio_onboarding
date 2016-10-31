@@ -6,7 +6,8 @@ angular.module('loomioApp').directive 'introductionCarousel', ->
   controller: ($scope, Session, $rootScope) ->
     $scope.dismissed = false
 
-    $scope.slides = ['Gather', 'Discuss', 'Propose', 'Act']
+    $scope.slides =
+      ['Gather', 'Discuss', 'Propose', 'Act']
     $scope.slideIndex = 0
     $scope.maxSlideIndex = $scope.slides.length - 1
 

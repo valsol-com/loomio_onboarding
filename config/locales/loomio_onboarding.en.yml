@@ -1,0 +1,29 @@
+en:
+  loomio_onboarding:
+    group_progress_card:
+      title: Activate your group
+      set_description: Set your group's description
+      set_profile_photo: Choose a profile photo for yourself
+      set_cover_photo: Choose a cover photo for your group
+      invite_people_in: Invite people in
+      start_thread: Start a discussion thread
+      start_proposal: Start a proposal
+      learn_more: Stuck? Talk to one of our collaboration coaches
+      learn_more_title: Opens in new tab
+      celebration_message: Nice! Your group is good to go!
+      dismiss: Dismiss
+    introduction_carousel:
+      gather_title: Gather
+      gather_description: All your Loomio activity happens with a group. Check who's here and invite people if anyone is missing.
+      gather_alt_text: Group gathered in a circle around a question mark
+      discuss_title: Discuss
+      discuss_description: Start a thread to have a discussion with your group members. Keep each thread focussed on one topic.
+      discuss_alt_text: Group sharing information and expressing opinions with coloured speech bubbles
+      propose_title: Propose
+      propose_description: 'Use a proposal to move a thread towards a conclusion: everyone is asked to have their say on a specific course of action.'
+      propose_alt_text: Group gathered around pie-chart stating positions with coloured speech bubbles
+      act_title: 'Decide & Act'
+      act_description: When the proposal closes you'll get a visual summary of everyone's input. Notify everyone of the outcome so the next steps are clear.
+      act_alt_text: Group launching upwards from green thumb with arms in the air
+      learn_more: Learn more
+      get_started: Get started
