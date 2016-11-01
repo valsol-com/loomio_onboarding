@@ -4,6 +4,7 @@ angular.module('loomioApp').directive 'introductionCarousel', ->
   templateUrl: 'generated/components/introduction_carousel/introduction_carousel.html'
   replace: true
   controller: ($scope, Session, $rootScope, Records) ->
+    $rootScope.$broadcast 'toggleSidebar', false
 
     $scope.slides =
       ['Gather', 'Discuss', 'Propose', 'Act']
