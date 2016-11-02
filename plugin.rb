@@ -10,7 +10,6 @@ module Plugins
 
         plugin.use_test_route(:setup_progress_card_coordinator) do
           GroupService.create(group: test_group, actor: patrick)
-          patrick.experienced!("introductionCarousel")
           test_subgroup = Group.new(name: 'Johnny sub',
                                     parent: test_group,
                                     discussion_privacy_options: 'public_or_private',
@@ -28,8 +27,11 @@ module Plugins
         end
         plugin.use_test_route(:setup_progress_card_member) do
           test_group.update_attribute(:enable_experiments, true)
-          jennifer.experienced!("introductionCarousel")
           sign_in jennifer
+          redirect_to group_url(test_group)
+        end
+        plugin.use_test_route(:setup_group_with_intro_carousel) do
+          sign_in emilio
           redirect_to group_url(test_group)
         end
       end

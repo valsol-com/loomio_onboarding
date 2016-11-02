@@ -14,11 +14,13 @@ angular.module('loomioApp').directive 'introductionCarousel', ->
     $scope.show = ->
       $scope.group.isParent() &&
       Session.user().isMemberOf($scope.group) &&
-      !Session.subscriptionSuccess &&
-      !Session.user().hasExperienced("introductionCarousel")
+      !Session.user().hasExperienced("welcomeModal") &&
+      !Session.user().hasExperienced("introductionCarousel") &&
+      $scope.group.createdAt.isAfter(moment("2016-11-02"))
 
     $scope.dismiss = ->
       Records.users.saveExperience("introductionCarousel")
+      $rootScope.$broadcast 'toggleSidebar', true
 
     $scope.nextSlide = ->
       applyAnimationClasses("go-left", "go-right")
