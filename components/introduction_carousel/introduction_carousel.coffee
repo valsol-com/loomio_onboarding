@@ -14,7 +14,6 @@ angular.module('loomioApp').directive 'introductionCarousel', ->
     $scope.show = ->
       $scope.group.isParent() &&
       Session.user().isMemberOf($scope.group) &&
-      !Session.user().hasExperienced("welcomeModal") &&
       !Session.user().hasExperienced("introductionCarousel") &&
       $scope.group.createdAt.isAfter(moment("2016-10-31"))
 
