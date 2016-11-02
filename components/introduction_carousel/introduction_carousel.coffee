@@ -4,18 +4,20 @@ angular.module('loomioApp').directive 'introductionCarousel', ->
   templateUrl: 'generated/components/introduction_carousel/introduction_carousel.html'
   replace: true
   controller: ($scope, Session, $rootScope, Records) ->
-    $rootScope.$broadcast 'toggleSidebar', false
-
-    $scope.slides =
-      ['Gather', 'Discuss', 'Propose', 'Act']
-    $scope.slideIndex = 0
-    $scope.maxSlideIndex = $scope.slides.length - 1
 
     $scope.show = ->
       $scope.group.isParent() &&
       Session.user().isMemberOf($scope.group) &&
       !Session.user().hasExperienced("introductionCarousel") &&
       $scope.group.createdAt.isAfter(moment("2016-10-31"))
+
+    $rootScope.$broadcast('toggleSidebar', false) if $scope.show()
+
+    $scope.slides =
+      ['Gather', 'Discuss', 'Propose', 'Act']
+    $scope.slideIndex = 0
+    $scope.maxSlideIndex = $scope.slides.length - 1
+
 
     $scope.dismiss = ->
       Records.users.saveExperience("introductionCarousel")
