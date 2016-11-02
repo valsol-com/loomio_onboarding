@@ -16,7 +16,7 @@ angular.module('loomioApp').directive 'introductionCarousel', ->
       Session.user().isMemberOf($scope.group) &&
       !Session.user().hasExperienced("welcomeModal") &&
       !Session.user().hasExperienced("introductionCarousel") &&
-      $scope.group.createdAt.isAfter(moment("2016-11-02"))
+      $scope.group.createdAt.isAfter(moment("2016-10-31"))
 
     $scope.dismiss = ->
       Records.users.saveExperience("introductionCarousel")
