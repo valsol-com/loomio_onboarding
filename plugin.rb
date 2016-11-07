@@ -8,6 +8,8 @@ module Plugins
 
         plugin.use_translations 'config/locales', :loomio_onboarding
 
+        plugin.use_asset 'components/decorators/group_page_controller_decorator.coffee'
+
         plugin.use_test_route(:setup_progress_card_coordinator) do
           GroupService.create(group: test_group, actor: patrick)
           test_subgroup = Group.new(name: 'Johnny sub',

@@ -2,7 +2,7 @@
   height: 100%;
   left: 0;
   position: fixed;
-  top: 45px;
+  top: 0px;
   width: 100%;
   z-index: 1 !important;
 }
@@ -102,6 +102,12 @@
     border-radius: 20px;
     padding: 20px;
   }
+  .introduction-carousel__slide-image {
+    height: 300px;
+  }
+  .introduction-carousel__slide-text {
+    height: 130px;
+  }
 }
 
 @media (max-width: $tiny-max-px) {
@@ -112,22 +118,29 @@
     border-radius: 0;
     padding: 20px 60px;
   }
+  .introduction-carousel__slide-image {
+    height: 200px;
+  }
+  .introduction-carousel__arrow-prev,
+  .introduction-carousel__arrow-next {
+    display: none;
+  }
 }
 
 .go-left > .introduction-carousel__slide.ng-enter {
-  animation: slideInLeft 0.5s ease-in;
+  animation: slideInLeft 0.3s ease-in;
 }
 
 .go-left > .introduction-carousel__slide.ng-leave {
-  animation: slideOutLeft 0.5s ease-out;
+  animation: slideOutLeft 0.3s ease-out;
 }
 
 .go-right > .introduction-carousel__slide.ng-enter {
-  animation: slideInRight 0.5s ease-in;
+  animation: slideInRight 0.3s ease-in;
 }
 
 .go-right > .introduction-carousel__slide.ng-leave {
-  animation: slideOutRight 0.5s ease-out;
+  animation: slideOutRight 0.3s ease-out;
 }
 
 @keyframes slideInLeft {

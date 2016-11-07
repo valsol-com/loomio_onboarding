@@ -3,24 +3,22 @@ angular.module('loomioApp').directive 'introductionCarousel', ->
   restrict: 'E'
   templateUrl: 'generated/components/introduction_carousel/introduction_carousel.html'
   replace: true
-  controller: ($scope, Session, $rootScope, Records) ->
+  controller: ($scope, $timeout, Session, $rootScope, Records) ->
 
-    $scope.show = ->
-      $scope.group.isParent() &&
-      Session.user().isMemberOf($scope.group) &&
-      !Session.user().hasExperienced("introductionCarousel") &&
-      $scope.group.createdAt.isAfter(moment("2016-10-31"))
-
-    $rootScope.$broadcast('toggleSidebar', false) if $scope.show()
+    $scope.$on 'launchIntroCarousel', ->
+      $scope.showIntroCarousel = true
+      $rootScope.$broadcast('toggleSidebar', false)
+      $rootScope.$broadcast('toggleNavbar', false)
 
     $scope.slides =
       ['Gather', 'Discuss', 'Propose', 'Act']
     $scope.slideIndex = 0
     $scope.maxSlideIndex = $scope.slides.length - 1
 
-
     $scope.dismiss = ->
       Records.users.saveExperience("introductionCarousel")
+      $scope.showIntroCarousel = false
+      $rootScope.$broadcast 'toggleNavbar', true
       $rootScope.$broadcast 'toggleSidebar', true
 
     $scope.nextSlide = ->
@@ -47,3 +45,19 @@ angular.module('loomioApp').directive 'introductionCarousel', ->
       $element = document.querySelector('.introduction-carousel__slides')
       $element.classList.remove(remove)
       $element.classList.add(add)
+
+    timer = ""
+    automateTransition = ->
+      $timeout(5000).then ->
+        if $scope.slideIndex == 3
+          $scope.$broadcast '$destroy'
+        else
+          timer = $timeout((->
+            $scope.nextSlide()
+            timer = $timeout(automateTransition, 5000)
+          ), 5000)
+          return
+    automateTransition()
+
+    $scope.$on '$destroy', ->
+      $timeout.cancel(timer)

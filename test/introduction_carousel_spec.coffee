@@ -5,7 +5,7 @@ describe 'Introduction carousel', ->
 
   it 'is visible to members of parent groups', ->
     page.loadPath 'setup_group_with_intro_carousel'
-    page.expectText '.introduction-carousel', 'Gather'
+    page.expectElement '.introduction-carousel'
 
   it 'is not visible to members of subgroups', ->
     page.loadPath 'setup_subgroup'

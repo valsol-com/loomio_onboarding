@@ -1,38 +1,41 @@
 .blank
-  .introduction-carousel{ng-if: "show()"}
+  .introduction-carousel{ng-if: "showIntroCarousel"}
     .introduction-carousel__slide-wrapper
-      %a.introduction-carousel__arrow-prev{ng-click: "prevSlide()"}
+      %a.introduction-carousel__arrow-prev{ng-if: "slideIndex > 0", ng-click: "prevSlide()"}
         .introduction-carousel__icon-container
           %i.fa.fa-2x.fa-long-arrow-left
 
       .introduction-carousel__slides.animated.go-left
-        .introduction-carousel__slide.animated{ng-if: "slideIndex == 0", ng-swipe-left: "nextSlide()", ng-swipe-right: "prevSlide()"}
+        .introduction-carousel__slide.animated{ng-if: "slideIndex == 0", md-swipe-left: "nextSlide()", md-swipe-right: "prevSlide()"}
           %img.introduction-carousel__slide-image{ng-src: "img/gather.png", alt: "{{ 'loomio_onboarding.introduction_carousel.gather_alt_text' | translate }}"}
-          .introduction-carousel__slide-title
-            %strong{translate: "loomio_onboarding.introduction_carousel.gather_title"}
-          .introduction-carousel__slide-description{translate: "loomio_onboarding.introduction_carousel.gather_description"}
+          .introduction-carousel__slide-text
+            .introduction-carousel__slide-title
+              %strong{translate: "loomio_onboarding.introduction_carousel.gather_title"}
+            .introduction-carousel__slide-description{translate: "loomio_onboarding.introduction_carousel.gather_description"}
           .introduction-carousel__actions
             .introduction-carousel__button-container
               %button.introduction-carousel__button.introduction-carousel__button--learn-more.lmo-btn--featured{ng-click: "", translate: "loomio_onboarding.introduction_carousel.learn_more"}
             .introduction-carousel__button-container
               %button.introduction-carousel__button.introduction-carousel__button--get-started.lmo-btn--featured{ng-click: "dismiss()", translate: "loomio_onboarding.introduction_carousel.get_started"}
 
-        .introduction-carousel__slide.animated{ng-if: "slideIndex == 1", ng-swipe-left: "nextSlide()", ng-swipe-right: "prevSlide()"}
+        .introduction-carousel__slide.animated{ng-if: "slideIndex == 1", md-swipe-left: "nextSlide()", md-swipe-right: "prevSlide()"}
           %img.introduction-carousel__slide-image{ng-src: "img/discuss.png", alt: "{{ 'loomio_onboarding.introduction_carousel.discuss_alt_text' | translate }}"}
-          .introduction-carousel__slide-title
-            %strong{translate: "loomio_onboarding.introduction_carousel.discuss_title"}
-          .introduction-carousel__slide-description{translate: "loomio_onboarding.introduction_carousel.discuss_description"}
+          .introduction-carousel__slide-text
+            .introduction-carousel__slide-title
+              %strong{translate: "loomio_onboarding.introduction_carousel.discuss_title"}
+            .introduction-carousel__slide-description{translate: "loomio_onboarding.introduction_carousel.discuss_description"}
           .introduction-carousel__actions
             .introduction-carousel__button-container
               %button.introduction-carousel__button.lmo-btn--featured{ng-click: "", translate: "loomio_onboarding.introduction_carousel.learn_more"}
             .introduction-carousel__button-container
               %button.introduction-carousel__button.lmo-btn--featured{ng-click: "dismiss()", translate: "loomio_onboarding.introduction_carousel.get_started"}
 
-        .introduction-carousel__slide.animated{ng-if: "slideIndex == 2", ng-swipe-left: "nextSlide()", ng-swipe-right: "prevSlide()"}
+        .introduction-carousel__slide.animated{ng-if: "slideIndex == 2", md-swipe-left: "nextSlide()", md-swipe-right: "prevSlide()"}
           %img.introduction-carousel__slide-image{ng-src: "img/propose.png", alt: "{{ 'loomio_onboarding.introduction_carousel.propose_alt_text' | translate }}"}
-          .introduction-carousel__slide-title
-            %strong{translate: "loomio_onboarding.introduction_carousel.propose_title"}
-          .introduction-carousel__slide-description{translate: "loomio_onboarding.introduction_carousel.propose_description"}
+          .introduction-carousel__slide-text
+            .introduction-carousel__slide-title
+              %strong{translate: "loomio_onboarding.introduction_carousel.propose_title"}
+            .introduction-carousel__slide-description{translate: "loomio_onboarding.introduction_carousel.propose_description"}
           .introduction-carousel__actions
             .introduction-carousel__button-container
               %button.introduction-carousel__button.lmo-btn--featured{ng-click: "", translate: "loomio_onboarding.introduction_carousel.learn_more"}
@@ -41,20 +44,24 @@
 
         .introduction-carousel__slide.animated{ng-if: "slideIndex == 3"}
           %img.introduction-carousel__slide-image{ng-src: "img/act.png", alt: "{{ 'loomio_onboarding.introduction_carousel.act_alt_text' | translate }}"}
-          .introduction-carousel__slide-title
-            %strong{translate: "loomio_onboarding.introduction_carousel.act_title"}
-          .introduction-carousel__slide-description{translate: "loomio_onboarding.introduction_carousel.act_description"}
+          .introduction-carousel__slide-text
+            .introduction-carousel__slide-title
+              %strong{translate: "loomio_onboarding.introduction_carousel.act_title"}
+            .introduction-carousel__slide-description{translate: "loomio_onboarding.introduction_carousel.act_description"}
           .introduction-carousel__actions
             .introduction-carousel__button-container
               %button.introduction-carousel__button.lmo-btn--featured{ng-click: "", translate: "loomio_onboarding.introduction_carousel.learn_more"}
             .introduction-carousel__button-container
               %button.introduction-carousel__button.lmo-btn--featured{ng-click: "dismiss()", translate: "loomio_onboarding.introduction_carousel.get_started"}
 
-      %a.introduction-carousel__arrow-next{ng-click: "nextSlide()"}
+      %a.introduction-carousel__arrow-next{ng-if: "slideIndex < 3", ng-click: "nextSlide()"}
+        .introduction-carousel__icon-container
+          %i.fa.fa-2x.fa-long-arrow-right
+      %a.introduction-carousel__arrow-next{ng-if: "slideIndex == 3", ng-click: "dismiss()"}
         .introduction-carousel__icon-container
           %i.fa.fa-2x.fa-long-arrow-right
 
     .introduction-carousel__navigation{aria-hidden: "true"}
       %ul.introduction-carousel__dots
         %li{ng-repeat:"slide in slides"}
-          %a.introduction-carousel__dot{ng-class: "{'introduction__carousel-dot--active':isCurrentSlideIndex($index)}", ng-click: "transition($index)"}
+          %a.introduction-carousel__dot{ng-class: "{'introduction__carousel-dot--active':isCurrentSlideIndex($index)}", ng-click: "dismiss()"}
