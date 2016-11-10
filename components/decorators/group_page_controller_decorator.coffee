@@ -11,7 +11,7 @@ angular.module('loomioApp').config ($provide) ->
           ctrl.group.isParent() &&
           Session.user().isMemberOf(ctrl.group) &&
           !Session.user().hasExperienced("introductionCarousel") &&
-          ctrl.group.createdAt.isAfter(moment("2016-10-31"))
+          ctrl.group.createdAt.isAfter(moment("2016-11-05"))
         , priority: 15)
 
       ctrl

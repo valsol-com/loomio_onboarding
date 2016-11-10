@@ -26,10 +26,18 @@ angular.module('loomioApp').directive 'introductionCarousel', ->
       newIndex = if $scope.slideIndex == $scope.maxSlideIndex then 0 else $scope.slideIndex + 1
       $scope.transition(newIndex)
 
+    $scope.clickNextSlide = ->
+      $scope.$broadcast 'stopAutoPlay'
+      $scope.nextSlide()
+
     $scope.prevSlide = ->
       applyAnimationClasses("go-right", "go-left")
       newIndex = if $scope.slideIndex == 0 then $scope.maxSlideIndex else $scope.slideIndex - 1
       $scope.transition(newIndex)
+
+    $scope.clickPrevSlide = ->
+      $scope.$broadcast 'stopAutoPlay'
+      $scope.prevSlide()
 
     $scope.isCurrentSlideIndex = (index) ->
       $scope.slideIndex == index
@@ -59,5 +67,5 @@ angular.module('loomioApp').directive 'introductionCarousel', ->
           return
     automateTransition()
 
-    $scope.$on '$destroy', ->
+    $scope.$on 'stopAutoPlay', ->
       $timeout.cancel(timer)
