@@ -6,7 +6,7 @@ angular.module('loomioApp').directive 'introductionCarousel', ->
   controller: ($scope, $timeout, Session, $rootScope, Records) ->
 
     $scope.$on 'launchIntroCarousel', ->
-      $scope.showIntroCarousel = true
+      $timeout -> $scope.showIntroCarousel = true
       $rootScope.$broadcast('toggleSidebar', false)
       $rootScope.$broadcast('toggleNavbar', false)
 
