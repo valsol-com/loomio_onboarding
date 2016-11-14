@@ -58,7 +58,7 @@ angular.module('loomioApp').directive 'introductionCarousel', ->
     automateTransition = ->
       $timeout(5000).then ->
         if $scope.slideIndex == 3
-          $scope.$broadcast '$destroy'
+          $scope.$broadcast 'stopAutoPlay'
         else
           timer = $timeout((->
             $scope.nextSlide()

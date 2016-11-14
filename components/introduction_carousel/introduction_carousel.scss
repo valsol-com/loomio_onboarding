@@ -149,7 +149,9 @@
     height: 200px;
   }
   .introduction-carousel__arrow-prev,
-  .introduction-carousel__arrow-next {
+  .introduction-carousel__arrow-next,
+  .introduction-carousel__left-slide-margin,
+  .introduction-carousel__right-slide-margin {
     display: none;
   }
 }
