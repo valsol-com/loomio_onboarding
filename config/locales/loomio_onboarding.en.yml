@@ -13,6 +13,7 @@ en:
       celebration_message: Nice! Your group is good to go!
       dismiss: Dismiss
     introduction_carousel:
+      aria_label: Welcome to Loomio
       gather_title: Gather
       gather_description: All your Loomio activity happens with a <strong>group</strong>. Check who's here and invite people if anyone is missing.
       gather_alt_text: Group gathered in a circle around a question mark
@@ -26,4 +27,5 @@ en:
       act_description: When the proposal closes you'll get a visual summary of everyone's input. Notify everyone of the <strong>outcome</strong> so the next steps are clear.
       act_alt_text: Group launching upwards from green thumb with arms in the air
       learn_more: Learn more
+      learn_more_title: Opens in new tab
       get_started: Get started

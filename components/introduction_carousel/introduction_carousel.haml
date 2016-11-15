@@ -1,5 +1,5 @@
 .blank
-  .introduction-carousel.animated{ng-if: "showIntroCarousel"}
+  .introduction-carousel.animated{ng-if: "showIntroCarousel", aria-label: "{{'loomio_onboarding.introduction_carousel.aria_label' | translate }}", role: "alertdialog"}
     .introduction-carousel__slide-wrapper
       %a.introduction-carousel__arrow-prev{ng-if: "slideIndex > 0", ng-click: "clickPrevSlide()"}
         .introduction-carousel__icon-container
@@ -11,14 +11,14 @@
           %button{type: "button", class: "close", ng-click: "dismiss()"}
             %span &times;
             %span.sr-only{translate: "common.action.cancel"}
-          %img.introduction-carousel__slide-image{ng-src: "img/gather.png", alt: "{{ 'loomio_onboarding.introduction_carousel.gather_alt_text' | translate }}"}
+          %img.introduction-carousel__slide-image{ng-src: "img/gather.png", aria-hidden: "true", alt: "{{ 'loomio_onboarding.introduction_carousel.gather_alt_text' | translate }}"}
           .introduction-carousel__slide-text
             .introduction-carousel__slide-title
               %strong{translate: "loomio_onboarding.introduction_carousel.gather_title"}
             .introduction-carousel__slide-description{translate: "loomio_onboarding.introduction_carousel.gather_description"}
           .introduction-carousel__actions
             .introduction-carousel__button-container
-              %button.introduction-carousel__button.introduction-carousel__button--learn-more.lmo-btn--featured{ng-click: "", translate: "loomio_onboarding.introduction_carousel.learn_more"}
+              %a.introduction-carousel__button.lmo-btn--featured{href: "http://loomio.school/beginner/", target: "_blank", title: "{{'loomio_onboarding.introduction_carousel.learn_more_title' | translate}}", translate: "loomio_onboarding.introduction_carousel.learn_more"}
             .introduction-carousel__button-container
               %button.introduction-carousel__button.introduction-carousel__button--get-started.lmo-btn--featured{ng-click: "dismiss()", translate: "loomio_onboarding.introduction_carousel.get_started"}
 
@@ -26,14 +26,14 @@
            %button{type: "button", class: "close", ng-click: "dismiss()"}
               %span &times;
               %span.sr-only{translate: "common.action.cancel"}
-          %img.introduction-carousel__slide-image{ng-src: "img/discuss.png", alt: "{{ 'loomio_onboarding.introduction_carousel.discuss_alt_text' | translate }}"}
+          %img.introduction-carousel__slide-image{ng-src: "img/discuss.png", aria-hidden: "true", alt: "{{ 'loomio_onboarding.introduction_carousel.discuss_alt_text' | translate }}"}
           .introduction-carousel__slide-text
             .introduction-carousel__slide-title
               %strong{translate: "loomio_onboarding.introduction_carousel.discuss_title"}
             .introduction-carousel__slide-description{translate: "loomio_onboarding.introduction_carousel.discuss_description"}
           .introduction-carousel__actions
             .introduction-carousel__button-container
-              %button.introduction-carousel__button.lmo-btn--featured{ng-click: "", translate: "loomio_onboarding.introduction_carousel.learn_more"}
+              %a.introduction-carousel__button.lmo-btn--featured{href: "http://loomio.school/beginner/", target: "_blank", title: "{{'loomio_onboarding.introduction_carousel.learn_more_title' | translate}}", translate: "loomio_onboarding.introduction_carousel.learn_more"}
             .introduction-carousel__button-container
               %button.introduction-carousel__button.lmo-btn--featured{ng-click: "dismiss()", translate: "loomio_onboarding.introduction_carousel.get_started"}
 
@@ -41,14 +41,14 @@
           %button{type: "button", class: "close", ng-click: "dismiss()"}
             %span &times;
             %span.sr-only{translate: "common.action.cancel"}
-          %img.introduction-carousel__slide-image{ng-src: "img/propose.png", alt: "{{ 'loomio_onboarding.introduction_carousel.propose_alt_text' | translate }}"}
+          %img.introduction-carousel__slide-image{ng-src: "img/propose.png", aria-hidden: "true", alt: "{{ 'loomio_onboarding.introduction_carousel.propose_alt_text' | translate }}"}
           .introduction-carousel__slide-text
             .introduction-carousel__slide-title
               %strong{translate: "loomio_onboarding.introduction_carousel.propose_title"}
             .introduction-carousel__slide-description{translate: "loomio_onboarding.introduction_carousel.propose_description"}
           .introduction-carousel__actions
             .introduction-carousel__button-container
-              %button.introduction-carousel__button.lmo-btn--featured{ng-click: "", translate: "loomio_onboarding.introduction_carousel.learn_more"}
+              %a.introduction-carousel__button.lmo-btn--featured{href: "http://loomio.school/beginner/", target: "_blank", title: "{{'loomio_onboarding.introduction_carousel.learn_more_title' | translate}}", translate: "loomio_onboarding.introduction_carousel.learn_more"}
             .introduction-carousel__button-container
               %button.introduction-carousel__button.lmo-btn--featured{ng-click: "dismiss()", translate: "loomio_onboarding.introduction_carousel.get_started"}
 
@@ -56,14 +56,14 @@
           %button{type: "button", class: "close", ng-click: "dismiss()"}
             %span &times;
             %span.sr-only{translate: "common.action.cancel"}
-          %img.introduction-carousel__slide-image{ng-src: "img/act.png", alt: "{{ 'loomio_onboarding.introduction_carousel.act_alt_text' | translate }}"}
+          %img.introduction-carousel__slide-image{ng-src: "img/act.png", aria-hidden: "true", alt: "{{ 'loomio_onboarding.introduction_carousel.act_alt_text' | translate }}"}
           .introduction-carousel__slide-text
             .introduction-carousel__slide-title
               %strong{translate: "loomio_onboarding.introduction_carousel.act_title"}
             .introduction-carousel__slide-description{translate: "loomio_onboarding.introduction_carousel.act_description"}
           .introduction-carousel__actions
             .introduction-carousel__button-container
-              %button.introduction-carousel__button.lmo-btn--featured{ng-click: "", translate: "loomio_onboarding.introduction_carousel.learn_more"}
+              %a.introduction-carousel__button.lmo-btn--featured{href: "http://loomio.school/beginner/", target: "_blank", title: "{{'loomio_onboarding.introduction_carousel.learn_more_title' | translate}}", translate: "loomio_onboarding.introduction_carousel.learn_more"}
             .introduction-carousel__button-container
               %button.introduction-carousel__button.lmo-btn--featured{ng-click: "dismiss()", translate: "loomio_onboarding.introduction_carousel.get_started"}
 
@@ -75,4 +75,4 @@
     .introduction-carousel__navigation{aria-hidden: "true"}
       %ul.introduction-carousel__dots
         %li{ng-repeat:"slide in slides"}
-          %a.introduction-carousel__dot{ng-class: "{'introduction__carousel-dot--active':isCurrentSlideIndex($index)}", ng-click: "dismiss()"}
+          %a.introduction-carousel__dot{ng-class: "{'introduction__carousel-dot--active':isCurrentSlideIndex($index)}", ng-click: "transition($index)"}

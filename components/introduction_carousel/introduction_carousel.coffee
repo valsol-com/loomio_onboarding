@@ -3,10 +3,11 @@ angular.module('loomioApp').directive 'introductionCarousel', ->
   restrict: 'E'
   templateUrl: 'generated/components/introduction_carousel/introduction_carousel.html'
   replace: true
-  controller: ($scope, $timeout, Session, $rootScope, Records) ->
+  controller: ($scope, $timeout, $interval, $rootScope, Session, Records) ->
 
     $scope.$on 'launchIntroCarousel', ->
-      $timeout -> $scope.showIntroCarousel = true
+      $timeout($scope.showIntroCarousel = true).then ->
+        return unless document.querySelector('.introduction-carousel').focus()
       $rootScope.$broadcast('toggleSidebar', false)
       $rootScope.$broadcast('toggleNavbar', false)
 
@@ -27,7 +28,7 @@ angular.module('loomioApp').directive 'introductionCarousel', ->
       $scope.transition(newIndex)
 
     $scope.clickNextSlide = ->
-      $scope.$broadcast 'stopAutoPlay'
+      $interval.cancel(timer)
       $scope.nextSlide()
 
     $scope.prevSlide = ->
@@ -36,7 +37,7 @@ angular.module('loomioApp').directive 'introductionCarousel', ->
       $scope.transition(newIndex)
 
     $scope.clickPrevSlide = ->
-      $scope.$broadcast 'stopAutoPlay'
+      $interval.cancel(timer)
       $scope.prevSlide()
 
     $scope.isCurrentSlideIndex = (index) ->
@@ -50,22 +51,13 @@ angular.module('loomioApp').directive 'introductionCarousel', ->
       $scope.slideIndex = index
 
     applyAnimationClasses = (add, remove) ->
-      $element = document.querySelector('.introduction-carousel__slides')
+      return unless $element = document.querySelector('.introduction-carousel__slides')
       $element.classList.remove(remove)
       $element.classList.add(add)
 
-    timer = ""
-    automateTransition = ->
-      $timeout(5000).then ->
-        if $scope.slideIndex == 3
-          $scope.$broadcast 'stopAutoPlay'
-        else
-          timer = $timeout((->
-            $scope.nextSlide()
-            timer = $timeout(automateTransition, 5000)
-          ), 5000)
-          return
-    automateTransition()
-
-    $scope.$on 'stopAutoPlay', ->
-      $timeout.cancel(timer)
+    timer = $interval(->
+      if $scope.slideIndex == 3
+        $interval.cancel(timer)
+      else
+        $scope.nextSlide()
+    , 8000)
