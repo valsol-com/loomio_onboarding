@@ -108,6 +108,12 @@
   width: 10px;
 }
 
+.introduction-carousel__close {
+  position: absolute;
+  top: 13px;
+  right: 15px;
+}
+
 .introduction__carousel-dot--active {
   background-color: #41ABE5;
   box-shadow: inset 2px 0px 2px -2px #333;
