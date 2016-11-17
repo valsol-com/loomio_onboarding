@@ -8,7 +8,7 @@
 
       .introduction-carousel__slides.animated.go-left
         .introduction-carousel__slide.animated{ng-if: "slideIndex == 0", md-swipe-left: "nextSlide()", md-swipe-right: "prevSlide()"}
-          %button{type: "button", class: "close", ng-click: "dismiss()"}
+          %button.introduction-carousel__close{type: "button", class: "close", ng-click: "dismiss()"}
             %span &times;
             %span.sr-only{translate: "common.action.cancel"}
           %img.introduction-carousel__slide-image{ng-src: "img/gather.png", aria-hidden: "true", alt: "{{ 'loomio_onboarding.introduction_carousel.gather_alt_text' | translate }}"}
@@ -23,7 +23,7 @@
               %button.introduction-carousel__button.introduction-carousel__button--get-started.lmo-btn--featured{ng-click: "dismiss()", translate: "loomio_onboarding.introduction_carousel.get_started"}
 
         .introduction-carousel__slide.animated{ng-if: "slideIndex == 1", md-swipe-left: "nextSlide()", md-swipe-right: "prevSlide()"}
-           %button{type: "button", class: "close", ng-click: "dismiss()"}
+           %button.introduction-carousel__close{type: "button", class: "close", ng-click: "dismiss()"}
               %span &times;
               %span.sr-only{translate: "common.action.cancel"}
           %img.introduction-carousel__slide-image{ng-src: "img/discuss.png", aria-hidden: "true", alt: "{{ 'loomio_onboarding.introduction_carousel.discuss_alt_text' | translate }}"}
@@ -38,7 +38,7 @@
               %button.introduction-carousel__button.lmo-btn--featured{ng-click: "dismiss()", translate: "loomio_onboarding.introduction_carousel.get_started"}
 
         .introduction-carousel__slide.animated{ng-if: "slideIndex == 2", md-swipe-left: "nextSlide()", md-swipe-right: "prevSlide()"}
-          %button{type: "button", class: "close", ng-click: "dismiss()"}
+          %button.introduction-carousel__close{type: "button", class: "close", ng-click: "dismiss()"}
             %span &times;
             %span.sr-only{translate: "common.action.cancel"}
           %img.introduction-carousel__slide-image{ng-src: "img/propose.png", aria-hidden: "true", alt: "{{ 'loomio_onboarding.introduction_carousel.propose_alt_text' | translate }}"}
@@ -53,7 +53,7 @@
               %button.introduction-carousel__button.lmo-btn--featured{ng-click: "dismiss()", translate: "loomio_onboarding.introduction_carousel.get_started"}
 
         .introduction-carousel__slide.animated{ng-if: "slideIndex == 3"}
-          %button{type: "button", class: "close", ng-click: "dismiss()"}
+          %button.introduction-carousel__close{type: "button", class: "close", ng-click: "dismiss()"}
             %span &times;
             %span.sr-only{translate: "common.action.cancel"}
           %img.introduction-carousel__slide-image{ng-src: "img/act.png", aria-hidden: "true", alt: "{{ 'loomio_onboarding.introduction_carousel.act_alt_text' | translate }}"}
