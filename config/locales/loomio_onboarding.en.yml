@@ -14,6 +14,11 @@ en:
       dismiss: Dismiss
     introduction_carousel:
       aria_label: Welcome to Loomio
+      welcome_title: Welcome to Loomio!
+      welcome_description: This is a place for groups to talk issues through and decide together.
+      welcome_join_group: You are about to join the group
+      welcome_alt_text: Loomio Helper Bot
+      take_tour: Take the tour!
       gather_title: Gather
       gather_description: All your Loomio activity happens with a <strong>group</strong>. Check who's here and invite people if anyone is missing.
       gather_alt_text: Group gathered in a circle around a question mark

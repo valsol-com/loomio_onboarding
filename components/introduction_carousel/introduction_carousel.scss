@@ -49,6 +49,10 @@
   max-width: 300px;
 }
 
+.introduction-carousel__slide-image--welcome {
+  max-height: 265px;
+}
+
 .introduction-carousel__slide-title {
   font-size: 24px;
 }
@@ -66,6 +70,7 @@
 
 .introduction-carousel__button-container {
   margin: 10px;
+  text-align: center;
 }
 
 .introduction-carousel__button {
@@ -128,7 +133,6 @@
     margin: 50px auto 20px;
   }
   .introduction-carousel__slides {
-    width: 400px;
     height: 543px;
   }
   .introduction-carousel__slide {

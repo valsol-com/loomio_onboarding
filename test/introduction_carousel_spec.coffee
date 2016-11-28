@@ -13,6 +13,7 @@ describe 'Introduction carousel', ->
 
   it 'can be dismissed', ->
     page.loadPath 'setup_group_with_intro_carousel'
+    page.click '.introduction-carousel__arrow-next'
     page.click '.introduction-carousel__button--get-started'
     browser.refresh()
     page.expectNoElement '.introduction-carousel'

@@ -5,7 +5,7 @@ angular.module('loomioApp').config ($provide) ->
       if _.get(arguments, '[1].$router.name') == 'groupPage'
 
         ctrl.addLauncher(=>
-          $timeout -> $rootScope.$broadcast 'launchIntroCarousel'
+          $timeout -> $rootScope.$broadcast('launchIntroCarousel', ctrl.group)
           true
         , ->
           ctrl.group.isParent() &&

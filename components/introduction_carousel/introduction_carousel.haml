@@ -11,6 +11,23 @@
           %button.introduction-carousel__close{type: "button", class: "close", ng-click: "dismiss()"}
             %span &times;
             %span.sr-only{translate: "common.action.cancel"}
+          %img.introduction-carousel__slide-image.introduction-carousel__slide-image--welcome{ng-src: "img/mascot.png", aria-hidden: "true", alt: "{{ 'loomio_onboarding.introduction_carousel.welcome_alt_text' | translate }}"}
+          .introduction-carousel__slide-title
+            %strong{translate: "loomio_onboarding.introduction_carousel.welcome_title"}
+          .introduction-carousel__slide-description
+            %p{translate: "loomio_onboarding.introduction_carousel.welcome_description"}
+            %span{translate: "loomio_onboarding.introduction_carousel.welcome_join_group"}>
+            %span
+              %strong {{group.name}}
+          .introduction-carousel__actions
+            .introduction-carousel__button-container
+              %button.introduction-carousel__button.lmo-btn--featured{ng-click: "nextSlide()", translate: "loomio_onboarding.introduction_carousel.take_tour"}
+
+      .introduction-carousel__slides.animated.go-left
+        .introduction-carousel__slide.animated{ng-if: "slideIndex == 1", md-swipe-left: "nextSlide()", md-swipe-right: "prevSlide()"}
+          %button.introduction-carousel__close{type: "button", class: "close", ng-click: "dismiss()"}
+            %span &times;
+            %span.sr-only{translate: "common.action.cancel"}
           %img.introduction-carousel__slide-image{ng-src: "img/gather.png", aria-hidden: "true", alt: "{{ 'loomio_onboarding.introduction_carousel.gather_alt_text' | translate }}"}
           .introduction-carousel__slide-text
             .introduction-carousel__slide-title
@@ -22,7 +39,7 @@
             .introduction-carousel__button-container
               %button.introduction-carousel__button.introduction-carousel__button--get-started.lmo-btn--featured{ng-click: "dismiss()", translate: "loomio_onboarding.introduction_carousel.get_started"}
 
-        .introduction-carousel__slide.animated{ng-if: "slideIndex == 1", md-swipe-left: "nextSlide()", md-swipe-right: "prevSlide()"}
+        .introduction-carousel__slide.animated{ng-if: "slideIndex == 2", md-swipe-left: "nextSlide()", md-swipe-right: "prevSlide()"}
            %button.introduction-carousel__close{type: "button", class: "close", ng-click: "dismiss()"}
               %span &times;
               %span.sr-only{translate: "common.action.cancel"}
@@ -37,7 +54,7 @@
             .introduction-carousel__button-container
               %button.introduction-carousel__button.lmo-btn--featured{ng-click: "dismiss()", translate: "loomio_onboarding.introduction_carousel.get_started"}
 
-        .introduction-carousel__slide.animated{ng-if: "slideIndex == 2", md-swipe-left: "nextSlide()", md-swipe-right: "prevSlide()"}
+        .introduction-carousel__slide.animated{ng-if: "slideIndex == 3", md-swipe-left: "nextSlide()", md-swipe-right: "prevSlide()"}
           %button.introduction-carousel__close{type: "button", class: "close", ng-click: "dismiss()"}
             %span &times;
             %span.sr-only{translate: "common.action.cancel"}
@@ -52,7 +69,7 @@
             .introduction-carousel__button-container
               %button.introduction-carousel__button.lmo-btn--featured{ng-click: "dismiss()", translate: "loomio_onboarding.introduction_carousel.get_started"}
 
-        .introduction-carousel__slide.animated{ng-if: "slideIndex == 3"}
+        .introduction-carousel__slide.animated{ng-if: "slideIndex == 4"}
           %button.introduction-carousel__close{type: "button", class: "close", ng-click: "dismiss()"}
             %span &times;
             %span.sr-only{translate: "common.action.cancel"}
@@ -67,10 +84,10 @@
             .introduction-carousel__button-container
               %button.introduction-carousel__button.lmo-btn--featured{ng-click: "dismiss()", translate: "loomio_onboarding.introduction_carousel.get_started"}
 
-      %a.introduction-carousel__arrow-next{ng-if: "slideIndex < 3", ng-click: "clickNextSlide()"}
+      %a.introduction-carousel__arrow-next{ng-if: "slideIndex < 4", ng-click: "clickNextSlide()"}
         .introduction-carousel__icon-container
           %i.fa.fa-2x.fa-long-arrow-right
-      .introduction-carousel__right-slide-margin{ng-if: "slideIndex == 3"}
+      .introduction-carousel__right-slide-margin{ng-if: "slideIndex == 4"}
 
     .introduction-carousel__navigation{aria-hidden: "true"}
       %ul.introduction-carousel__dots

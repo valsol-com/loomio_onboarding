@@ -1,18 +1,19 @@
 angular.module('loomioApp').directive 'introductionCarousel', ->
-  scope: { group: '=?' }
+  scope: {}
   restrict: 'E'
   templateUrl: 'generated/components/introduction_carousel/introduction_carousel.html'
   replace: true
   controller: ($scope, $timeout, $interval, $rootScope, Session, Records) ->
 
-    $scope.$on 'launchIntroCarousel', ->
+    $scope.$on 'launchIntroCarousel', (event, group) ->
+      $scope.group = group
       $timeout($scope.showIntroCarousel = true).then ->
         return unless document.querySelector('.introduction-carousel').focus()
       $rootScope.$broadcast('toggleSidebar', false)
       $rootScope.$broadcast('toggleNavbar', false)
 
     $scope.slides =
-      ['Gather', 'Discuss', 'Propose', 'Act']
+      ['Welcome', 'Gather', 'Discuss', 'Propose', 'Act']
     $scope.slideIndex = 0
     $scope.maxSlideIndex = $scope.slides.length - 1
 
