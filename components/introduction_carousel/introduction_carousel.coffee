@@ -23,28 +23,19 @@ angular.module('loomioApp').directive 'introductionCarousel', ->
       $rootScope.$broadcast 'toggleNavbar', true
       $rootScope.$broadcast 'toggleSidebar', true
 
-    $scope.nextSlide = ->
+    $scope.nextSlide = (haltAnimation) ->
       applyAnimationClasses("go-left", "go-right")
-      newIndex = if $scope.slideIndex == $scope.maxSlideIndex then 0 else $scope.slideIndex + 1
-      $scope.transition(newIndex)
+      $scope.transition($scope.slideIndex + 1, haltAnimation)
 
-    $scope.clickNextSlide = ->
-      $interval.cancel(timer)
-      $scope.nextSlide()
-
-    $scope.prevSlide = ->
+    $scope.prevSlide = (haltAnimation) ->
       applyAnimationClasses("go-right", "go-left")
-      newIndex = if $scope.slideIndex == 0 then $scope.maxSlideIndex else $scope.slideIndex - 1
-      $scope.transition(newIndex)
-
-    $scope.clickPrevSlide = ->
-      $interval.cancel(timer)
-      $scope.prevSlide()
+      $scope.transition($scope.slideIndex - 1, haltAnimation)
 
     $scope.isCurrentSlideIndex = (index) ->
       $scope.slideIndex == index
 
-    $scope.transition = (index) ->
+    $scope.transition = (index, haltAnimation) ->
+      $interval.cancel(timer) if haltAnimation
       if (index < $scope.slideIndex)
         applyAnimationClasses("go-right", "go-left")
       else
@@ -57,8 +48,5 @@ angular.module('loomioApp').directive 'introductionCarousel', ->
       $element.classList.add(add)
 
     timer = $interval(->
-      if $scope.slideIndex == 3
-        $interval.cancel(timer)
-      else
-        $scope.nextSlide()
+      $scope.nextSlide($scope.slideIndex == $scope.maxSlideIndex - 1)
     , 8000)
