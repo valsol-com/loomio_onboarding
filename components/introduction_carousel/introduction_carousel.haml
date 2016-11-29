@@ -23,7 +23,6 @@
             .introduction-carousel__button-container
               %button.introduction-carousel__button.lmo-btn--featured{ng-click: "nextSlide()", translate: "loomio_onboarding.introduction_carousel.take_tour"}
 
-      .introduction-carousel__slides.animated.go-left
         .introduction-carousel__slide.animated{ng-if: "slideIndex == 1", md-swipe-left: "nextSlide()", md-swipe-right: "prevSlide()"}
           %button.introduction-carousel__close{type: "button", class: "close", ng-click: "dismiss()"}
             %span &times;
