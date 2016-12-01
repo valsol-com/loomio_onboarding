@@ -1,0 +1,209 @@
+.introduction-carousel {
+  height: 100%;
+  left: 0;
+  position: fixed;
+  top: 0px;
+  width: 100%;
+  z-index: 1 !important;
+}
+
+.introduction-carousel.ng-enter {
+  transition:0.5s linear all;
+  opacity:0;
+}
+
+.introduction-carousel.ng-leave {
+  transition:0.5s linear all;
+  opacity:1;
+}
+.introduction-carousel.ng-leave.ng-leave-active {
+  opacity:0;
+}
+
+.introduction-carousel.ng-enter.ng-enter-active {
+  opacity:1;
+}
+
+.introduction-carousel__slide-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.introduction-carousel__slides {
+  width: 400px;
+  display: inline-flex;
+}
+
+.introduction-carousel__slide {
+  background-color: #fff;
+  border: 1px solid;
+  border-radius: 20px;
+  width: 450px;
+  position: relative;
+}
+
+.introduction-carousel__slide-image {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 300px;
+}
+
+.introduction-carousel__slide-image--welcome {
+  max-height: 265px;
+}
+
+.introduction-carousel__slide-title {
+  font-size: 24px;
+}
+
+.introduction-carousel__slide-title,
+.introduction-carousel__slide-description {
+  text-align: center !important;
+  margin: 20px;
+}
+
+.introduction-carousel__actions {
+  display: flex;
+  justify-content: center;
+}
+
+.introduction-carousel__button-container {
+  margin: 10px;
+  text-align: center;
+}
+
+.introduction-carousel__button {
+  text-transform: uppercase;
+}
+
+.introduction-carousel__icon-container {
+  background-color: #fff;
+  border-radius: 45px;
+  width: 45px;
+  height: 45px;
+  text-align: center;
+  padding: 7px;
+  border: 1px solid;
+  color: black;
+  margin: 0 20px;
+  cursor: pointer;
+}
+
+.introduction-carousel__navigation {
+  display: flex;
+  justify-content: center;
+}
+
+.introduction-carousel__dots {
+  display: flex;
+  list-style-type: none;
+  padding-left: 0px;
+  cursor: pointer;
+}
+
+.introduction-carousel__dot {
+  background-color: #eee;
+  border: 1px solid #666;
+  border-radius: 5px;
+  box-shadow: inset 1px 1px 1px #888;
+  display: inline-block;
+  height: 10px;
+  margin: 0 2px;
+  width: 10px;
+}
+
+.introduction-carousel__close {
+  position: absolute;
+  top: 13px;
+  right: 15px;
+}
+
+.introduction__carousel-dot--active {
+  background-color: #41ABE5;
+  box-shadow: inset 2px 0px 2px -2px #333;
+}
+
+.introduction-carousel__left-slide-margin { margin-left: 85px; }
+.introduction-carousel__right-slide-margin { margin-right: 85px; }
+
+@media (min-width: $tiny-max-px) {
+  .introduction-carousel { background-color: #e0e0e0; }
+  .introduction-carousel__slide-wrapper {
+    margin: 50px auto 20px;
+  }
+  .introduction-carousel__slides {
+    height: 543px;
+  }
+  .introduction-carousel__slide {
+    border: 1px solid;
+    border-radius: 20px;
+    padding: 20px;
+    width: 400px;
+  }
+  .introduction-carousel__slide-image {
+    height: 300px;
+  }
+  .introduction-carousel__slide-text {
+    height: 130px;
+  }
+}
+
+@media (max-width: $tiny-max-px) {
+  .introduction-carousel { background-color: #fff; }
+  .introduction-carousel__slide-wrapper {
+    margin: 0;
+  }
+  .introduction-carousel__slide {
+    border: 0;
+    border-radius: 0;
+    padding: 20px 60px;
+    width: 100%;
+  }
+  .introduction-carousel__slide-image {
+    height: 200px;
+  }
+  .introduction-carousel__arrow-prev,
+  .introduction-carousel__arrow-next,
+  .introduction-carousel__left-slide-margin,
+  .introduction-carousel__right-slide-margin {
+    display: none;
+  }
+}
+
+.go-left > .introduction-carousel__slide.ng-enter {
+  animation: slideInLeft 0.3s ease-in;
+}
+
+.go-left > .introduction-carousel__slide.ng-leave {
+  animation: slideOutLeft 0.3s ease-out;
+}
+
+.go-right > .introduction-carousel__slide.ng-enter {
+  animation: slideInRight 0.3s ease-in;
+}
+
+.go-right > .introduction-carousel__slide.ng-leave {
+  animation: slideOutRight 0.3s ease-out;
+}
+
+@keyframes slideInLeft {
+  from { left: 100%; opacity: 0; }
+  to   { left: 0; opacity: 1; }
+}
+
+@keyframes slideOutLeft {
+  from { left: 0; opacity: 1; }
+  to   { left: -100%; opacity: 0; }
+}
+
+@keyframes slideInRight {
+  from { left: -100%; opacity: 0; }
+  to   { left: 0; opacity: 1; }
+}
+
+@keyframes slideOutRight {
+  from { left: 0; opacity: 1 }
+  to   { left: 100%; opacity: 0; }
+}

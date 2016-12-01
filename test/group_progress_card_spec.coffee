@@ -9,7 +9,7 @@ describe 'Group progress card', ->
 
   it 'is only visible to group coordinators', ->
     page.loadPath 'setup_progress_card_member'
-    page.expectNoText '.group-page', 'ACTIVATE YOUR GROUP'
+    page.expectNoElement '.group-progress-card'
 
   it 'adds a tick to completed tasks', ->
     page.loadPath 'setup_progress_card_coordinator'
@@ -26,7 +26,7 @@ describe 'Group progress card', ->
   it 'can be dismissed', ->
     page.loadPath 'setup_progress_card_coordinator'
     page.click '.group-progress-card__dismiss'
-    page.expectNoText '.group-page', 'ACTIVATE YOUR GROUP'
+    page.expectNoElement '.group-progress-card'
 
   it 'reappears when user starts a new group', ->
     page.loadPath 'setup_progress_card_coordinator'
