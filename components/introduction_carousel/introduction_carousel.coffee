@@ -3,7 +3,7 @@ angular.module('loomioApp').directive 'introductionCarousel', ->
   restrict: 'E'
   templateUrl: 'generated/components/introduction_carousel/introduction_carousel.html'
   replace: true
-  controller: ($scope, $timeout, $interval, $rootScope, Session, Records) ->
+  controller: ($scope, $timeout, $interval, $rootScope, $location, Session, Records) ->
 
     $scope.$on 'launchIntroCarousel', (event, group) ->
       $scope.group = group
@@ -22,6 +22,7 @@ angular.module('loomioApp').directive 'introductionCarousel', ->
       $scope.showIntroCarousel = false
       $rootScope.$broadcast 'toggleNavbar', true
       $rootScope.$broadcast 'toggleSidebar', true
+      $location.search('welcome=youhavearrived')
 
     $scope.nextSlide = (haltAnimation) ->
       applyAnimationClasses("go-left", "go-right")
