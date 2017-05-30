@@ -1,0 +1,18 @@
+.lmo-blank
+  %section.user-progress-card{ng-if: "show()"}>
+    .user-progress-card__row
+      %h2#user-progress-card__title.lmo-card-heading{translate: "loomio_onboarding.user_progress_card.title"}
+      %material_modal_header_cancel_button
+
+    %ul.user-progress-card__list
+      %li.user-progress-card__list-item{ng-click: "activity.click()", ng-repeat: "activity in activities", ng-class: "{'user-progress-card__complete': activity.complete()}"}
+        %i.material-icons{ng-if: "activity.complete()"}> check_box
+        %i.material-icons{ng-if: "!activity.complete()"}> check_box_outline_blank
+        %span.user-progress-card__activity-text {{ translationFor(activity.translate) }}
+
+    .user-progress-card__celebration-message{ng-if: "setupComplete()"}
+      %span> 🎉
+      %strong{translate: "loomio_onboarding.user_progress_card.celebration_message"}>
+      %a.lmo-pointer{ng-click: "$close()", translate: "loomio_onboarding.user_progress_card.dismiss_this_card"}
+
+    .sidebar__divider

@@ -1,48 +1,20 @@
-.blank
+.lmo-blank
   %section.group-progress-card{ng-if: "show()"}>
     .group-progress-card__row
       %h2#group-progress-card__title.lmo-card-heading{translate: "loomio_onboarding.group_progress_card.title"}
-      %button.group-progress-card__dismiss{type: "button", class: "close", ng-click: "dismiss()"}
-        %span{aria-hidden: "true"}
-          &times;
-        %span.sr-only{translate: "loomio_onboarding.group_progress_card.dismiss"}
+      %material_modal_header_cancel_button
 
     %ul.group-progress-card__list
-      %li.group-progress-card__list-item
-        1.
-        %span{translate: "loomio_onboarding.group_progress_card.set_description", ng-class: "{'group-progress-card__complete': group.description}"}>
-        %span{ng-if: "group.description"} ✅
+      %li.group-progress-card__list-item{ng-click: "activity.click()", ng-repeat: "activity in activities", ng-class: "{'group-progress-card__complete': activity.complete()}"}
+        %i.material-icons{ng-if: "activity.complete()"}> check_box
+        %i.material-icons{ng-if: "!activity.complete()"}> check_box_outline_blank
+        %span.group-progress-card__activity-text {{ translationFor(activity.translate) }}
 
-      %li.group-progress-card__list-item
-        2.
-        %span{translate: "loomio_onboarding.group_progress_card.set_profile_photo", ng-class: "{'group-progress-card__complete': userHasProfilePicture()}"}>
-        %span{ng-if: "userHasProfilePicture()"} ✅
+    .group-progress-card__celebration-message{ng-if: "setupComplete()"}
+      %span> 🎉
+      %strong{translate: "loomio_onboarding.group_progress_card.celebration_message"}>
+      %a.lmo-pointer{ng-click: "$close()", translate: "loomio_onboarding.group_progress_card.dismiss_this_card"}
 
-      %li.group-progress-card__list-item
-        3.
-        %span{translate: "loomio_onboarding.group_progress_card.set_cover_photo", ng-class: "{'group-progress-card__complete': group.hasCustomCover}"}>
-        %span{ng-if: "group.hasCustomCover"} ✅
-
-      %li.group-progress-card__list-item
-        4.
-        %span{translate: "loomio_onboarding.group_progress_card.invite_people_in", ng-class: "{'group-progress-card__complete': groupHasMultipleMembers()}"}>
-        %span{ng-if: "groupHasMultipleMembers()"} ✅
-
-      %li.group-progress-card__list-item.group-progress-card__start-thread
-        5.
-        %span{translate: "loomio_onboarding.group_progress_card.start_thread", ng-class: "{'group-progress-card__complete': groupHasMultipleThreads()}"}>
-        %span{ng-if: "groupHasMultipleThreads()"} ✅
-
-      %li.group-progress-card__list-item
-        6.
-        %span{translate: "loomio_onboarding.group_progress_card.start_proposal", ng-class: "{'group-progress-card__complete': groupHasMultipleProposals()}"}>
-        %span{ng-if: "groupHasMultipleProposals()"} ✅
-
-    .group-progress-card__celebration-message{ng-if: "allTasksCompleted()"}
-      🎉
-      %span
-        %strong{translate: "loomio_onboarding.group_progress_card.celebration_message"}>
-
-    %a.group-progress-card__learn-more{ng-if: "showContactUs()", ng-click: "contactUs()", title: "{{ 'loomio_onboarding.group_progress_card.learn_more_title' | translate }}"}
+    %a.lmo-pointer{ng-if: "showContactUs()", ng-click: "contactUs()", title: "{{ 'loomio_onboarding.group_progress_card.learn_more_title' | translate }}"}
       %span{translate: "loomio_onboarding.group_progress_card.learn_more"}>
       %span 🎓

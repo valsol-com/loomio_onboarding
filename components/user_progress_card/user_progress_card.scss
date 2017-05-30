@@ -1,25 +1,25 @@
-.group-progress-card {
-  @include card;
+.user-progress-card {
+  padding: 8px;
 }
 
-.group-progress-card .material-modal-header-cancel-button {
+.user-progress-card .material-modal-header-cancel-button {
   position: relative;
   bottom: 8px;
 }
 
-.group-progress-card__row {
+.user-progress-card__row {
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
 }
 
-.group-progress-card__list {
+.user-progress-card__list {
   list-style: none;
   padding: 0;
-  margin: 0;
+  margin: 0 0 8px 0;
 }
 
-.group-progress-card__list-item {
+.user-progress-card__list-item {
   @include displayFlex;
   line-height: 32px;
   align-items: center;
@@ -27,28 +27,28 @@
   -webkit-align-items: center;
 }
 
-.group-progress-card__complete i {
+.user-progress-card__complete i {
   color: $loomio-orange;
 }
 
-.group-progress-card__complete .group-progress-card__activity-text {
+.user-progress-card__complete .user-progress-card__activity-text {
   color: $grey-on-white;
 }
 
-.group-progress-card__list-item i {
+.user-progress-card__list-item i {
   margin-right: 8px;
 }
 
-.group-progress-card__celebration-message {
+.user-progress-card__celebration-message {
   line-height: 32px;
   padding: 4px;
   @include truncateText;
 }
 
-.group-progress-card__activity-text {
+.user-progress-card__activity-text {
   @include truncateText;
 }
 
-.group-progress-card__learn-more {
+.user-progress-card__learn-more {
   @include cardMinorAction;
 }
