@@ -14,11 +14,11 @@ angular.module('loomioApp').directive 'groupProgressCard', ($translate, Session,
 
     $scope.activities = [
       translate: "set_description"
-      complete:  -> $scope.group.description?
+      complete:  -> $scope.group.description
       click:     -> ModalService.open GroupForm, group: -> $scope.group
     ,
       translate: "set_logo"
-      complete:  -> Session.user().hasProfilePhoto()
+      complete:  -> $scope.group.logoUrl() != '/img/default-logo-medium.png'
       click:     -> ModalService.open LogoPhotoForm, group: -> $scope.group
     ,
       translate: "set_cover_photo"
