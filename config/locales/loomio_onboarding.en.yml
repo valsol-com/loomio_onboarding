@@ -12,25 +12,3 @@ en:
       learn_more_title: Opens in new tab
       celebration_message: Nice! Your group is good to go!
       dismiss: Dismiss
-    introduction_carousel:
-      aria_label: Welcome to Loomio
-      welcome_title: Welcome to Loomio!
-      welcome_description: This is a place for groups to talk issues through and decide together.
-      welcome_join_group: You are about to join the group
-      welcome_alt_text: Loomio Helper Bot
-      take_tour: Take the tour!
-      gather_title: Gather
-      gather_description: All your Loomio activity happens with a <strong>group</strong>. Check who's here and invite people if anyone is missing.
-      gather_alt_text: Group gathered in a circle around a question mark
-      discuss_title: Discuss
-      discuss_description: Start a <strong>thread</strong> to have a discussion with your group members. Keep each thread focussed on one topic.
-      discuss_alt_text: Group sharing information and expressing opinions with coloured speech bubbles
-      propose_title: Propose
-      propose_description: 'Use a <strong>proposal</strong> to move a thread towards a conclusion: everyone is asked to have their say on a specific course of action.'
-      propose_alt_text: Group gathered around pie-chart stating positions with coloured speech bubbles
-      act_title: 'Decide & Act'
-      act_description: When the proposal closes you'll get a visual summary of everyone's input. Notify everyone of the <strong>outcome</strong> so the next steps are clear.
-      act_alt_text: Group launching upwards from green thumb with arms in the air
-      learn_more: Learn more
-      learn_more_title: Opens in new tab
-      get_started: Get started
