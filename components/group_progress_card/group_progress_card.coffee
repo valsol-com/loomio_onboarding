@@ -47,9 +47,3 @@ angular.module('loomioApp').directive 'groupProgressCard', ($translate, Session,
 
     $scope.setupComplete = ->
       _.all _.invoke($scope.activities, 'complete')
-
-    $scope.showContactUs = ->
-      IntercomService.available()
-
-    $scope.contactUs = ->
-      IntercomService.contactUs()
