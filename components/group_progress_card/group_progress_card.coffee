@@ -26,7 +26,7 @@ angular.module('loomioApp').directive 'groupProgressCard', ($translate, Session,
       click:     -> ModalService.open CoverPhotoForm, group: -> $scope.group
     ,
       translate: "invite_people_in"
-      complete:  -> $scope.group.membershipsCount > 1
+      complete:  -> $scope.group.membershipsCount > 1 or $scope.group.invitationsCount > 0
       click:     -> ModalService.open InvitationForm, group: -> $scope.group
     ,
       translate: "start_thread"
